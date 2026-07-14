@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>birthday.exe</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 30px 18px;
+      background: #080b0d;
+      color: #79ff97;
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .terminal {
+      border: 1px solid #79ff97;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 0 20px rgba(121, 255, 151, 0.15);
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .mission {
+      border-top: 1px dashed #44604b;
+      padding: 22px 0;
+    }
+
+    .complete {
+      color: #79ff97;
+    }
+
+    .locked {
+      color: #777;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 11px 16px;
+      border: 1px solid #79ff97;
+      border-radius: 7px;
+      color: #79ff97;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #79ff97;
+      color: #080b0d;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    input {
+      padding: 10px;
+      background: #111;
+      border: 1px solid #79ff97;
+      color: white;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="terminal">
+
+      <p>> initializing birthday.exe...</p>
+      <p>> checking player data...</p>
+      <p>> update available: VERSION 24.0</p>
+
+      <h1>BIRTHDAY.EXE</h1>
+
+      <p>
+        Sveikas, žaidėjau.<br>
+        Tavo užduotis – įveikti visas misijas ir atrakinti galutinį prizą.
+      </p>
+
+      <section class="mission">
+        <h2>MISSION 01 — LEGO WORLD</h2>
+        <p class="complete">STATUS: UNLOCKED</p>
+
+        <p>
+          Viskas, kas didinga, prasideda nuo mažos detalės.
+          Rask vietą, kurioje kaladėlės tampa pasauliais.
+        </p>
+
+        <a class="button"
+           href="ĮKLIJUOK_GOOGLE_FORMOS_NUORODĄ"
+           target="_blank">
+          Įkelti prisiminimą
+        </a>
+      </section>
+
+      <section class="mission">
+        <h2>MISSION 02 — HORSEPOWER</h2>
+        <p class="locked">STATUS: PASSWORD REQUIRED</p>
+
+        <input id="password2" type="password" placeholder="Įvesk kodą">
+        <button onclick="unlockMission2()">UNLOCK</button>
+
+        <div id="mission2Content" class="hidden">
+          <p>
+            Kai kuriems tai tik automobilis.
+            Tau – svajonė su keturiais ratais.
+          </p>
+
+          <a class="button"
+             href="ĮKLIJUOK_GOOGLE_FORMOS_NUORODĄ"
+             target="_blank">
+            Įkelti prisiminimą
+          </a>
+        </div>
+      </section>
+
+      <section class="mission">
+        <h2>FINAL REWARD</h2>
+        <p class="locked">STATUS: CLASSIFIED</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    function unlockMission2() {
+      const enteredPassword =
+        document.getElementById("password2").value.trim().toLowerCase();
+
+      const correctPassword = "porsche";
+
+      if (enteredPassword === correctPassword) {
+        document.getElementById("mission2Content")
+          .classList.remove("hidden");
+
+        alert("MISSION 02 UNLOCKED");
+      } else {
+        alert("ACCESS DENIED");
+      }
+    }
+  </script>
+</body>
+</html>
